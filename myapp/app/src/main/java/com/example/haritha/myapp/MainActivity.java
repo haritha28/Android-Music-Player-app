@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import static com.example.haritha.myapp.R.id.decrementbutton;
 
 public class MainActivity extends Activity {
     private ProgressBar progressBar;
@@ -72,8 +71,8 @@ public class MainActivity extends Activity {
         playButton = (Button) findViewById(R.id.playbutton);
         mediaPlayer = MediaPlayer.create(this, R.raw.song);
         songtime = (TextView) findViewById(R.id.songtime);
-        imageview = (ImageView) findViewById(R.id.imageview);
+        imageview = (ImageView) findViewById(R.id.album_art);
         songtime.setText(String.format("%02d:%02d",0,0));
-        imageview.setImageDrawable(getResources().getDrawable(R.drawable.im1));
+        imageview.setImageDrawable(getResources().getDrawable(R.drawable.album_art));
     }
 }
