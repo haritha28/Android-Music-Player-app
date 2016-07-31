@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     private ImageButton pausebutton;
     private ImageView nowplay;
     private ImageView namebar;
-
+   // private ImageButton forward;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,20 +57,21 @@ public class MainActivity extends Activity {
         playbuttonoriginal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.start();
-                songStartTime =  System.currentTimeMillis();
-                playbuttonoriginal.setImageResource(R.drawable.play_button);
-            }
-        });
-        pausebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mediaPlayer.stop();
-                songStartTime =  System.currentTimeMillis();
-                playbuttonoriginal.setImageResource(R.drawable.play_button);
+                if(mediaPlayer.isPlaying()){
+                    handler.removeCallbacks(updateUI);
+                    mediaPlayer.pause();
+                    playbuttonoriginal.setImageResource(R.drawable.play_button);
+                }
+                else {
+                    initHandler();
+                    mediaPlayer.start();
+                    songStartTime = System.currentTimeMillis();
+                    playbuttonoriginal.setImageResource(R.drawable.pause_button);
 
+                }
             }
-        });
+            }
+        );
     }
 
 //Linking with xml files usnig id
@@ -84,11 +85,13 @@ public class MainActivity extends Activity {
         imageview.setImageDrawable(getResources().getDrawable(R.drawable.album_art));
         playbuttonoriginal = (ImageButton) findViewById(R.id.playbuttonoriginal);
         playbuttonoriginal.setImageDrawable((getResources().getDrawable(R.drawable.play_button)));
-        pausebutton = (ImageButton) findViewById(R.id.pausebutton);
-        pausebutton.setImageDrawable((getResources().getDrawable(R.drawable.pause_button)));
+        //pausebutton = (ImageButton) findViewById(R.id.pausebutton);
+       // pausebutton.setImageDrawable((getResources().getDrawable(R.drawable.pause_button)));
         nowplay = (ImageView) findViewById(R.id.nowplay);
         nowplay.setImageDrawable(getResources().getDrawable(R.drawable.now_playing));
         namebar = (ImageView) findViewById(R.id.namebar);
         namebar.setImageDrawable(getResources().getDrawable(R.drawable.song_title_place_holder));
+        //forward = (ImageButton) findViewById(R.id.imageButton4);
+        //forward.setImageDrawable(getResources().getDrawable(R.drawable.fast_forward_button));
     }
 }
