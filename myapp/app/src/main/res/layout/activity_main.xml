@@ -121,7 +121,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/activity_main"
         android:layout_marginBottom="16dp"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintVertical_bias="0.96" />
 
 </android.support.constraint.ConstraintLayout>
