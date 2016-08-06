@@ -25,9 +25,10 @@ public class MainActivity extends Activity {
     private ImageView imageview;
     private ImageButton playbuttonoriginal;
     private ImageButton pausebutton;
+    private ImageButton forward;
+    private ImageButton rewind;
     private ImageView nowplay;
     private ImageView namebar;
-   // private ImageButton forward;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,12 +87,14 @@ public class MainActivity extends Activity {
         playbuttonoriginal = (ImageButton) findViewById(R.id.playbuttonoriginal);
         playbuttonoriginal.setImageDrawable((getResources().getDrawable(R.drawable.play_button)));
         //pausebutton = (ImageButton) findViewById(R.id.pausebutton);
-       // pausebutton.setImageDrawable((getResources().getDrawable(R.drawable.pause_button)));
+        //pausebutton.setImageDrawable((getResources().getDrawable(R.drawable.pause_button)));
         nowplay = (ImageView) findViewById(R.id.nowplay);
         nowplay.setImageDrawable(getResources().getDrawable(R.drawable.now_playing));
         namebar = (ImageView) findViewById(R.id.namebar);
         namebar.setImageDrawable(getResources().getDrawable(R.drawable.song_title_place_holder));
-        //forward = (ImageButton) findViewById(R.id.imageButton4);
-        //forward.setImageDrawable(getResources().getDrawable(R.drawable.fast_forward_button));
+        forward = (ImageButton) findViewById(R.id.forward);
+        forward.setImageDrawable(getResources().getDrawable(R.drawable.fast_forward_button));
+        rewind = (ImageButton) findViewById(R.id.rewind);
+        rewind.setImageDrawable(getResources().getDrawable(R.drawable.rewind_button));
     }
 }
